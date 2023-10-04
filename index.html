@@ -8,16 +8,49 @@
   </head>
   <body>
     <style>
-      tr {
-        display: grid;
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      ul {
+        list-style: none;
+      }
+      #ufList {
+        display: flex;
+        width: 10%;
+        justify-content: space-between;
       }
     </style>
+
     <div id="wrapper">
       <div id="container">
         <input id="entrada" type="text" />
-        <table>
-          <tbody></tbody>
-        </table>
+        <div>
+          <ul id="ufList">
+            <li>UF:</li>
+            <li id="ufHTML"></li>
+            <li>Estado:</li>
+            <li id="ufCode"></li>
+          </ul>
+          <ul>
+            <li>Data da nota.:</li>
+            <li id="dataNota"></li>
+            <li>CNPJ da empresa emissora.:</li>
+            <li id="cnpj"></li>
+            <li>Modelo da nota (55/65).:</li>
+            <li id="modelo"></li>
+            <li>Serie.:</li>
+            <li id="serie"></li>
+            <li>Numero da Nota.:</li>
+            <li id="numeroNfe"></li>
+            <li>Digito Verificador.:</li>
+            <li id="digito"></li>
+          </ul>
+        </div>
       </div>
       <p id="errorMessage" style="display: none; color: red"></p>
     </div>

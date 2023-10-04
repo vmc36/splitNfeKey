@@ -7,27 +7,38 @@ addEventListener('input', function () {
     // Verificação da chave e criação do objeto com as informaçoes.
     const infoKeyNfe = [
       {
-        uf: 'uf.: ' + slicedKey.slice(0, 2),
-        date: 'Data: ' + slicedKey.slice(2, 6),
-        cnpj: 'CNPJ: ' + slicedKey.slice(6, 20),
-        mod: 'Modelo da nota: ' + slicedKey.slice(20, 22),
-        serie: 'Série da Emissão: ' + slicedKey.slice(22, 25),
-        numberNfe: 'Número da Nfe: ' + slicedKey.slice(25, 34),
-        codeNfe: 'Código da Nfe no sistema emissor: ' + slicedKey.slice(34, 43),
-        digito: 'Digito Verificador: ' + slicedKey.slice(43, 44),
+        uf: slicedKey.slice(0, 2),
+        date: slicedKey.slice(2, 6),
+        cnpj: slicedKey.slice(6, 20),
+        mod: slicedKey.slice(20, 22),
+        serie: slicedKey.slice(22, 25),
+        numberNfe: slicedKey.slice(25, 34),
+        codeNfe: slicedKey.slice(34, 43),
+        digito: slicedKey.slice(43, 44),
       },
     ];
 
-    infoKeyNfe.forEach(function (relatorio) {
-      var tr = document.createElement('tr');
-      for (var campo in relatorio) {
-        var td = document.createElement('td');
-        td.innerHTML = relatorio[campo];
-        tr.appendChild(td);
-      }
-      tbody.appendChild(tr);
-      document.querySelector('tr').display = 'grid';
-    });
+    // infoKeyNfe.forEach(function (relatorio) {
+    //   var tr = document.createElement('tr');
+    //   for (var campo in relatorio) {
+    //     var td = document.createElement('td');
+    //     td.innerHTML = relatorio[campo];
+    //     tr.appendChild(td);
+    //   }
+    //   tbody.appendChild(tr);
+    //   document.querySelector('tr').display = 'grid';
+    // });
+
+    console.log(infoKeyNfe[0]);
+    const infoKeyNfeArray = infoKeyNfe[0];
+    document.getElementById('ufHTML').innerText = `${infoKeyNfeArray.uf}`;
+    document.getElementById('dataNota').textContent = infoKeyNfeArray.date;
+    document.getElementById('cnpj').textContent = infoKeyNfeArray.cnpj;
+    document.getElementById('modelo').textContent = infoKeyNfeArray.mod;
+    document.getElementById('serie').textContent = infoKeyNfeArray.serie;
+    document.getElementById('numeroNfe').textContent = infoKeyNfeArray.numberNfe;
+    document.getElementById('digito').textContent = infoKeyNfeArray.digito;
+
     const estados = [
       { nome: 'Rondônia', cod: '11' },
       { nome: 'Acre', cod: '12' },
@@ -58,7 +69,7 @@ addEventListener('input', function () {
       { nome: 'Distrito Federal', cod: '53' },
     ];
 
-    function compararComCodigo(uf) {
+    function compareufCode(uf) {
       for (let i = 0; i < estados.length; i++) {
         if (estados[i].cod === uf) {
           return estados[i].nome;
@@ -69,20 +80,8 @@ addEventListener('input', function () {
 
     const filterUfInfo = infoKeyNfe[0].uf;
     const filteredUfInfo = filterUfInfo.slice(5, 7);
-
-    console.log(estados[0].cod);
-    console.log(estados[0].nome);
-
-    const nomeEstado = compararComCodigo(filteredUfInfo);
-
-    if (nomeEstado) {
-      const selectTbody = document.querySelector('tbody');
-      const selectUfOnTable = selectTbody.querySelector('tr:first-child');
-      // Cria uma nova célula e insere o nome do estado
-      const newCell = document.createElement('td');
-      newCell.textContent = `- ${nomeEstado}`;
-      selectUfOnTable.appendChild(newCell);
-    }
+    const nomeEstado = compareufCode(filteredUfInfo);
+    nomeEstado ? (document.getElementById('ufCode').textContent = estados.nome) : '';
   } else {
     // Caso de chave inválida.
     var errorMessage = document.getElementById('errorMessage');
