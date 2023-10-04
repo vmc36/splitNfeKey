@@ -18,20 +18,8 @@ addEventListener('input', function () {
       },
     ];
 
-    // infoKeyNfe.forEach(function (relatorio) {
-    //   var tr = document.createElement('tr');
-    //   for (var campo in relatorio) {
-    //     var td = document.createElement('td');
-    //     td.innerHTML = relatorio[campo];
-    //     tr.appendChild(td);
-    //   }
-    //   tbody.appendChild(tr);
-    //   document.querySelector('tr').display = 'grid';
-    // });
-
-    console.log(infoKeyNfe[0]);
     const infoKeyNfeArray = infoKeyNfe[0];
-    document.getElementById('ufHTML').innerText = `${infoKeyNfeArray.uf}`;
+    document.getElementById('ufHTML').innerText = infoKeyNfeArray.uf;
     document.getElementById('dataNota').textContent = infoKeyNfeArray.date;
     document.getElementById('cnpj').textContent = infoKeyNfeArray.cnpj;
     document.getElementById('modelo').textContent = infoKeyNfeArray.mod;
@@ -79,9 +67,10 @@ addEventListener('input', function () {
     }
 
     const filterUfInfo = infoKeyNfe[0].uf;
-    const filteredUfInfo = filterUfInfo.slice(5, 7);
-    const nomeEstado = compareufCode(filteredUfInfo);
-    nomeEstado ? (document.getElementById('ufCode').textContent = estados.nome) : '';
+
+    const nomeEstado = compareufCode(filterUfInfo);
+    console.log(nomeEstado);
+    nomeEstado ? (document.getElementById('ufCode').textContent = nomeEstado) : '';
   } else {
     // Caso de chave inválida.
     var errorMessage = document.getElementById('errorMessage');
