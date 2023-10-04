@@ -18,9 +18,19 @@ addEventListener('input', function () {
       },
     ];
 
+    function formatDate(getDataFromObject) {
+      const dateToString = getDataFromObject.slice('');
+      const ano = dateToString.slice(0, 2);
+      const mes = dateToString.slice(2, 4);
+      const dateFormated = `${mes}/${ano}`;
+      return dateFormated;
+    }
+    const getDataFromObject = infoKeyNfe[0].date;
+    const dateFormated = formatDate(getDataFromObject);
+
     const infoKeyNfeArray = infoKeyNfe[0];
     document.getElementById('ufHTML').innerText = infoKeyNfeArray.uf;
-    document.getElementById('dataNota').textContent = infoKeyNfeArray.date;
+    document.getElementById('dataNota').textContent = dateFormated;
     document.getElementById('cnpj').textContent = infoKeyNfeArray.cnpj;
     document.getElementById('modelo').textContent = infoKeyNfeArray.mod;
     document.getElementById('serie').textContent = infoKeyNfeArray.serie;
