@@ -69,7 +69,7 @@ addEventListener('input', function () {
     const filterUfInfo = infoKeyNfe[0].uf;
 
     const nomeEstado = compareufCode(filterUfInfo);
-    console.log(nomeEstado);
+
     nomeEstado ? (document.getElementById('ufCode').textContent = nomeEstado) : '';
   } else {
     // Caso de chave inválida.
