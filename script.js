@@ -1,6 +1,5 @@
 addEventListener('input', function () {
   const chaveNfe = document.getElementById('entrada').value;
-  const tbody = document.querySelector('tbody');
   const slicedKey = chaveNfe.slice('');
 
   if (slicedKey.length === 44) {
@@ -28,10 +27,18 @@ addEventListener('input', function () {
     const getDataFromObject = infoKeyNfe[0].date;
     const dateFormated = formatDate(getDataFromObject);
 
+    function formatCnpj(cnpj) {
+      const cnpjtoString = cnpj.slice('');
+      const cnpjFormated = cnpjtoString.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+      return cnpjFormated;
+    }
+    const getCnpjFromObject = infoKeyNfe[0].cnpj;
+    const cnpjFormated = formatCnpj(getCnpjFromObject);
+
     const infoKeyNfeArray = infoKeyNfe[0];
     document.getElementById('ufHTML').innerText = infoKeyNfeArray.uf;
     document.getElementById('dataNota').textContent = dateFormated;
-    document.getElementById('cnpj').textContent = infoKeyNfeArray.cnpj;
+    document.getElementById('cnpj').textContent = cnpjFormated;
     document.getElementById('modelo').textContent = infoKeyNfeArray.mod;
     document.getElementById('serie').textContent = infoKeyNfeArray.serie;
     document.getElementById('numeroNfe').textContent = infoKeyNfeArray.numberNfe;
@@ -86,10 +93,5 @@ addEventListener('input', function () {
     var errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = 'Número da chave inválida';
     errorMessage.style.display = 'block';
-  }
-
-  if (chaveNfe.length === 0) {
-    //Limpa o input
-    tbody.innerHTML = '';
   }
 });
