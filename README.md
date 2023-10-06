@@ -4,7 +4,7 @@
 
 Esta documentação descreve a funcionalidade e uso do código JavaScript fornecido, que permite a interpretação da chave de acesso da Nota Fiscal Eletrônica (NF-e) no contexto de uma aplicação web.
 
-**# Funcionalidade:**
+## Funcionalidade:
 
 A funcionalidade principal desse código inclui:
 
@@ -23,7 +23,7 @@ A funcionalidade principal desse código inclui:
 5. **Mensagem de Erro:**
    Se a chave de acesso não atender ao comprimento esperado (44 caracteres), uma mensagem de erro é exibida, alertando que a chave de acesso é inválida.
 
-**# Utilização:**
+## Utilização:
 
 Para usar essa funcionalidade em uma aplicação web:
 
