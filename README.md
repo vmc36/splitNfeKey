@@ -1,10 +1,10 @@
 # splitNfeKey
 
-**## Documentação: Funcionalidade de Interpretação da Chave de Acesso da NF-e**
+**# Documentação: Funcionalidade de Interpretação da Chave de Acesso da NF-e**
 
 Esta documentação descreve a funcionalidade e uso do código JavaScript fornecido, que permite a interpretação da chave de acesso da Nota Fiscal Eletrônica (NF-e) no contexto de uma aplicação web.
 
-**### Funcionalidade:**
+**# Funcionalidade:**
 
 A funcionalidade principal desse código inclui:
 
@@ -23,7 +23,7 @@ A funcionalidade principal desse código inclui:
 5. **Mensagem de Erro:**
    Se a chave de acesso não atender ao comprimento esperado (44 caracteres), uma mensagem de erro é exibida, alertando que a chave de acesso é inválida.
 
-**### Utilização:**
+**# Utilização:**
 
 Para usar essa funcionalidade em uma aplicação web:
 
@@ -40,3 +40,17 @@ Para usar essa funcionalidade em uma aplicação web:
    A aplicação verifica automaticamente se a chave de acesso possui o comprimento adequado (44 caracteres). Caso contrário, a mensagem de erro correspondente é exibida.
 
 Essa funcionalidade é essencial em aplicações relacionadas à área fiscal e contábil, permitindo aos usuários analisar e compreender rapidamente as informações contidas na chave de acesso da NF-e ao inseri-la no sistema.
+
+**Nota:**
+
+O principal objetivo deste código é permitir que estudantes, desenvolvedores ou entusiastas possam explorar e experimentar os conceitos e funcionalidades do JavaScript de forma educacional e prática. Isso inclui a aplicação de algoritmos, técnicas de programação, frameworks, bibliotecas e outros recursos relacionados à linguagem.
+Este documento tem o propósito de esclarecer que o código contido neste repositório ou projeto tem finalidade exclusiva para estudo e teste de recursos relacionados à linguagem JavaScript. Ele não deve ser utilizado em ambientes de produção, em aplicações comerciais ou em qualquer contexto que implique em responsabilidades de garantia de funcionamento ou segurança.
+
+## Restrições de Uso
+
+Por favor, observe as seguintes restrições de uso para este código:
+
+- Não utilize este código em produção ou em aplicações que exigem garantia de desempenho, segurança ou funcionalidade.
+- Não utilize este código em ambientes ou contextos que possam impactar negativamente usuários, sistemas ou organizações.
+- Não utilize este código em projetos comerciais ou de negócios sem uma revisão e adaptação adequadas para atender a requisitos de produção.
+- Não reivindique ou utilize este código como seu próprio trabalho sem atribuir a devida autoria e referência a este projeto.
