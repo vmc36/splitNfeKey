@@ -93,7 +93,7 @@ addEventListener('input', async function () {
       }
     }
 
-    async function getCNPJ() {
+    async function getCNPJInformation() {
       const cnpj = infoKeyNfe.cnpj;
 
       try {
@@ -104,7 +104,7 @@ addEventListener('input', async function () {
       }
     }
     const consultarCnpjButton = document.getElementById('consultarCnpjButton');
-    consultarCnpjButton.addEventListener('click', getCNPJ);
+    consultarCnpjButton.addEventListener('click', getCNPJInformation);
   } else {
     var errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = 'Número da chave inválida';
