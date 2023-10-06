@@ -76,7 +76,7 @@ addEventListener('input', async function () {
 
     document.getElementById('ufCode').textContent = nomeEstado;
 
-    async function consultarCNPJ(cnpj) {
+    async function consultarCNPJApi(cnpj) {
       const apiUrl = `https://publica.cnpj.ws/cnpj/${cnpj}`;
 
       try {
@@ -97,16 +97,13 @@ addEventListener('input', async function () {
       const cnpj = infoKeyNfe.cnpj;
 
       try {
-        const empresa = await consultarCNPJ(cnpj);
+        const empresa = await consultarCNPJApi(cnpj);
         console.log('Empresa:', empresa);
-        // Manipule os dados da resposta da API conforme necessário
       } catch (error) {
         console.error('Erro:', error);
       }
     }
-
     const consultarCnpjButton = document.getElementById('consultarCnpjButton');
-
     consultarCnpjButton.addEventListener('click', getCNPJ);
   } else {
     var errorMessage = document.getElementById('errorMessage');
