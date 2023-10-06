@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Document</title>
+    <title>Informação por chave NFE</title>
   </head>
   <body>
     <h1 id="main-title">Informação por chave NFE</h1>
     <div id="wrapper">
       <div id="wrapper-content">
+        <p>Insira a chave nfe:</p>
         <div id="input-container">
           <input id="entrada" type="text" />
         </div>
@@ -23,11 +24,12 @@
               <li id="ufCode"></li>
             </ul>
             <ul id="info-list">
-              <li>Data da nota (AA/MM).:</li>
+              <li>Data da nota (AA/MM):</li>
               <li id="dataNota"></li>
-              <li>CNPJ da empresa emissora.:</li>
+              <li>CNPJ da empresa emissora:</li>
               <li id="cnpj"></li>
-              <li>Modelo da nota (55/65).:</li>
+              <li>Modelo da nota (55/65): <button id="consultarCnpjButton">Checa CNPJ</button></li>
+
               <li id="modelo"></li>
               <li>Serie.:</li>
               <li id="serie"></li>
@@ -43,5 +45,5 @@
     </div>
   </body>
 
-  <script src="/script.js"></script>
+  <script src="./js/script.js"></script>
 </html>
