@@ -92,19 +92,67 @@ addEventListener('input', async function () {
         throw new Error('Erro ao consultar CNPJ: ' + error.message);
       }
     }
+    let modalVisible = false;
+
+    function showModal() {
+      const modal = document.getElementById('modal-info');
+      const wrapperHeight = document.getElementById('wrapper-content');
+
+      if (modal) {
+        modalVisible = !modalVisible;
+
+        if (modalVisible) {
+          modal.style.display = 'flex';
+          wrapperHeight.style.height = '900px';
+        } else {
+          modal.style.display = 'none';
+        }
+      }
+    }
+
+    let requestCount = 0;
+    const maxRequestsPerMinute = 2; // Limite de requisições por minuto
+    let lastRequestTimestamp = 0;
 
     async function getCNPJInformation() {
+      if (requestCount >= maxRequestsPerMinute) {
+        const currentTime = new Date().getTime();
+        const timeDiff = currentTime - lastRequestTimestamp;
+
+        if (timeDiff < 60000) {
+          const showInfoApiLimit = getElementById('errorapi');
+          showInfoApiLimit.textContent = 'Limite de requisições atingido. Aguarde um momento antes de fazer mais requisições.';
+          return;
+        } else {
+          requestCount = 0;
+        }
+      }
+
       const cnpj = infoKeyNfe.cnpj;
 
       try {
-        const empresa = await consultarCNPJApi(cnpj);
-        console.log('Empresa:', empresa);
+        requestCount++;
+        lastRequestTimestamp = new Date().getTime();
+        const resultApi = await consultarCNPJApi(cnpj);
+        const empresa = resultApi;
+        const razaoSocial = empresa.razao_social;
+        const email = empresa.estabelecimento.email;
+        const cidade = empresa.estabelecimento.cidade.nome;
+        const dataInfo = empresa.atualizado_em;
+
+        document.getElementById('razao-social').textContent = razaoSocial;
+        document.getElementById('email').textContent = email;
+        document.getElementById('cidade').textContent = cidade;
+        document.getElementById('data-info').textContent = dataInfo;
+
+        showModal();
       } catch (error) {
         console.error('Erro:', error);
       }
     }
-    const consultarCnpjButton = document.getElementById('consultarCnpjButton');
-    consultarCnpjButton.addEventListener('click', getCNPJInformation);
+
+    const cnpjButton = document.getElementById('cnpjButton');
+    cnpjButton.addEventListener('click', getCNPJInformation);
   } else {
     var errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = 'Número da chave inválida';

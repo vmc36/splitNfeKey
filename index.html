@@ -28,8 +28,7 @@
               <li id="dataNota"></li>
               <li>CNPJ da empresa emissora:</li>
               <li id="cnpj"></li>
-              <li>Modelo da nota (55/65): <button id="consultarCnpjButton">Checa CNPJ</button></li>
-
+              <li>Modelo da nota (55/65):</li>
               <li id="modelo"></li>
               <li>Serie.:</li>
               <li id="serie"></li>
@@ -37,10 +36,24 @@
               <li id="numeroNfe"></li>
               <li>Digito Verificador.:</li>
               <li id="digito"></li>
+              <button id="cnpjButton">Mais Informações</button>
+              <p id="errorapi" style="display: none; color: red"></p>
             </ul>
           </div>
         </div>
+
         <p id="errorMessage" style="display: none; color: red"></p>
+
+        <div id="modal-info">
+          <p>Razão Social:</p>
+          <span id="razao-social"></span>
+          <p>Email:</p>
+          <span id="email"></span>
+          <p>Cidade:</p>
+          <span id="cidade"></span>
+          <p>Atualizado em:</p>
+          <span id="data-info"></span>
+        </div>
       </div>
     </div>
   </body>

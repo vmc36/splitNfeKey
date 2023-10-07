@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
 
 * {
   margin: 0;
@@ -35,16 +36,16 @@ input {
 #wrapper {
   height: 100%;
   width: 100%;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 #wrapper-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
-  padding: 10px;
+  width: 500px;
+  height: 600px;
+  padding: 5px;
   margin: auto;
   border: 2px solid;
   box-shadow: 0 8px 32px 0;
@@ -102,4 +103,42 @@ input {
 #digito {
   font-size: 15px;
   font-weight: 600;
+}
+
+#cnpjButton {
+  font-family: Roboto, sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(90deg, #264653 0%, #2a9d8f 100%);
+  padding: 10px 30px;
+  border: solid #0096c7 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+#modal-info {
+  display: none;
+  margin-top: 2rem;
+  flex-direction: column;
+  transition: 1000ms;
+  transform: translateY(-0px);
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+#modal-info > p {
+  margin-bottom: 2px;
+}
+
+#modal-info > span {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
