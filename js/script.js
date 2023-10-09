@@ -14,14 +14,14 @@ addEventListener('input', async function () {
       digito: slicedKey.slice(43, 44),
     };
 
-    function formatDate(dateString) {
+    function formatDateInvoice(dateString) {
       const ano = dateString.slice(2, 4);
       const mes = dateString.slice(0, 2);
       const dateFormated = `${mes}/${ano}`;
       return dateFormated;
     }
 
-    const dateFormated = formatDate(infoKeyNfe.date);
+    const dateFormated = formatDateInvoice(infoKeyNfe.date);
 
     function formatCnpj(cnpj) {
       const cnpjtoString = cnpj.slice('');
@@ -140,11 +140,26 @@ addEventListener('input', async function () {
         const cidade = empresa.estabelecimento.cidade.nome;
         const dataInfo = empresa.atualizado_em;
 
+        function formatDateBrazil(dataUTCString) {
+          const dataUTC = new Date(dataUTCString);
+          const options = {
+            timeZone: 'America/Sao_Paulo',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour12: false,
+          };
+          const dataFormatada = dataUTC.toLocaleString('pt-BR', options);
+          return dataFormatada;
+        }
+
+        const dateFormatedtoBr = formatDateBrazil(dataInfo);
+
         document.getElementById('razao-social').textContent = razaoSocial;
         document.getElementById('email').textContent = email;
         document.getElementById('cidade').textContent = cidade;
-        document.getElementById('data-info').textContent = dataInfo;
-
+        document.getElementById('data-info').textContent = dateFormatedtoBr;
+        console.log(resultApi);
         showModal();
       } catch (error) {
         console.error('Erro:', error);
