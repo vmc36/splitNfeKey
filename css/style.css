@@ -130,10 +130,11 @@ input {
   margin-bottom: 2px;
 }
 
-#modal-info,
+#modal-info > span,
 #info-list > span {
   font-size: 20px;
   margin-bottom: 12px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 425px) {
