@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Página para extração de informações da chave da Nota Fiscal Eletrônica (NFe)." />
+    <meta
+      name="keywords"
+      content="NFe, Nota Fiscal Eletrônica, extração, chave NFe, informações NFe, dados NFe, chave de acesso, processamento NFe, consulta NFe, dados fiscais, tributação, XML NFe"
+    />
+    <meta name="author" content="Seu Nome" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Informação por chave NFE</title>
+    <title>Extração de Informações da Chave da NFe</title>
   </head>
   <body>
     <h1 id="main-title">Informação por chave NFE</h1>
@@ -23,36 +30,39 @@
             </ul>
             <ul id="info-list">
               <li>Data da nota (AA/MM):</li>
-              <li id="dataNota"></li>
+              <span id="dataNota"></span>
               <li>CNPJ da empresa emissora:</li>
-              <li id="cnpj"></li>
+              <span id="cnpj"></span>
               <li>Modelo da nota (55/65):</li>
-              <li id="modelo"></li>
+              <span id="modelo"></span>
               <li>Serie.:</li>
-              <li id="serie"></li>
+              <span id="serie"></span>
               <li>Numero da Nota.:</li>
-              <li id="numeroNfe"></li>
+              <span id="numeroNfe"></span>
               <li>Digito Verificador.:</li>
-              <li id="digito"></li>
+              <span id="digito"></span>
               <button id="cnpjButton">Mais Informações</button>
-              <p id="errorapi" style="display: none; color: red"></p>
+              <p id="errorapi" style="display: none; color: gold"></p>
             </ul>
           </div>
         </div>
 
-        <p id="errorMessage" style="display: none; color: red"></p>
+        <p id="errorMessage" style="display: none; color: gold"></p>
 
         <div id="modal-info">
-          <p>Razão Social:</p>
-          <span id="razao-social"></span>
-          <p>Email:</p>
-          <span id="email"></span>
-          <p>Cidade:</p>
-          <span id="cidade"></span>
-          <p>Estado:</p>
-          <span id="ufCode"></span>
-          <p>Atualizado em:</p>
-          <span id="data-info"></span>
+          <ul id="info-list">
+            <li>Cidade:</li>
+            <span id="cidade"></span>
+            <li>Estado:</li>
+            <span id="ufCode"></span>
+            <li>Razão Social:</li>
+            <span id="razao-social"></span>
+            <li>Email:</li>
+            <span id="email"></span>
+
+            <li>Atualizado em:</li>
+            <span id="data-info"></span>
+          </ul>
         </div>
       </div>
     </div>
