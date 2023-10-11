@@ -1,7 +1,6 @@
 addEventListener('input', async function () {
   const chaveNfe = document.getElementById('entrada').value;
   const slicedKey = chaveNfe.slice('');
-
   if (slicedKey.length === 44) {
     const infoKeyNfe = {
       uf: slicedKey.slice(0, 2),
@@ -32,6 +31,7 @@ addEventListener('input', async function () {
     const cnpjFormated = formatCnpj(infoKeyNfe.cnpj);
 
     const infoKeyNfeArray = infoKeyNfe;
+
     document.getElementById('ufHTML').innerText = infoKeyNfeArray.uf;
     document.getElementById('dataNota').textContent = dateFormated;
     document.getElementById('cnpj').textContent = cnpjFormated;
@@ -133,12 +133,6 @@ addEventListener('input', async function () {
       try {
         requestCount++;
         lastRequestTimestamp = new Date().getTime();
-        const resultApi = await consultarCNPJApi(cnpj);
-        const empresa = resultApi;
-        const razaoSocial = empresa.razao_social;
-        const email = empresa.estabelecimento.email;
-        const cidade = empresa.estabelecimento.cidade.nome;
-        const dataInfo = empresa.atualizado_em;
 
         function formatDateBrazil(dataUTCString) {
           const dataUTC = new Date(dataUTCString);
@@ -152,14 +146,20 @@ addEventListener('input', async function () {
           const dataFormatada = dataUTC.toLocaleString('pt-BR', options);
           return dataFormatada;
         }
-
+        const resultApi = await consultarCNPJApi(cnpj);
+        const empresa = resultApi;
+        const razaoSocial = empresa.razao_social;
+        const email = empresa.estabelecimento.email;
+        const cidade = empresa.estabelecimento.cidade.nome;
+        const dataInfo = empresa.atualizado_em;
+        const commercialActivity = empresa.estabelecimento.atividade_principal.descricao;
         const dateFormatedtoBr = formatDateBrazil(dataInfo);
 
         document.getElementById('razao-social').textContent = razaoSocial;
         document.getElementById('email').textContent = email;
         document.getElementById('cidade').textContent = cidade;
         document.getElementById('data-info').textContent = dateFormatedtoBr;
-        console.log(resultApi);
+        document.getElementById('atividade-comercial').textContent = commercialActivity;
         showModal();
       } catch (error) {
         console.error('Erro:', error);
