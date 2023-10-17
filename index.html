@@ -11,60 +11,79 @@
       content="NFe, Nota Fiscal Eletrônica, extração, chave NFe, informações NFe, dados NFe, chave de acesso, processamento NFe, consulta NFe, dados fiscais, tributação, XML NFe"
     />
     <meta name="author" content="Seu Nome" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/dist/output.css" />
     <title>Extração de Informações da Chave da NFe</title>
   </head>
   <body>
-    <h1 id="main-title">Informação por chave NFE</h1>
-    <div id="wrapper">
-      <div id="wrapper-content">
-        <p>Insira a chave nfe:</p>
-        <div id="input-container">
-          <input id="entrada" type="text" />
+    <div class="w-full h-full flex bg-bgColor">
+      <div class="w-1/2 flex items-center">
+        <div>
+          <img src="/img/logo.svg" alt="imagem logo nfe" />
         </div>
-        <div id="info-container">
-          <div id="inner-container">
-            <ul id="uf-list">
-              <li>UF:</li>
-              <li id="ufHTML"></li>
-            </ul>
+      </div>
+      <div class="w-1/2">
+        <h1 id="main-title" class="text-mainTitle font-inter text-center text-5xl font-bold mt-24 mr-4">Informação Nota Fiscal Eletrônica</h1>
+
+        <div id="wrapper-content">
+          <div class="flex items-center justify-center w-full space-x-4 my-4">
+            <div class="w-36 h-[1px] bg-strokeColor"></div>
+            <p class="font-normal leading-none text-center font-poppins text-mainTitle">Insira sua chave</p>
+            <div class="w-36 h-[1px] bg-strokeColor"></div>
+          </div>
+
+          <div class="w-full text-center">
+            <input
+              id="entrada"
+              type="text"
+              placeholder="Insira sua chave"
+              class="rounded-lg leading-[1.92px] placeholder-center font-poppins text-strokeColor w-[400px] h-12 border border-solid border-gray-400 bg-white"
+            />
+            <!-- continuar aqui centralizando placeholder -->
+          </div>
+          <div id="info-container">
+            <div id="inner-container">
+              <ul id="uf-list">
+                <li>UF:</li>
+                <li id="ufHTML"></li>
+              </ul>
+              <ul id="info-list">
+                <li>Data da nota (AA/MM):</li>
+                <span id="dataNota"></span>
+                <li>CNPJ da empresa emissora:</li>
+                <span id="cnpj"></span>
+                <li>Modelo da nota (55/65):</li>
+                <span id="modelo"></span>
+                <li>Serie.:</li>
+                <span id="serie"></span>
+                <li>Numero da Nota.:</li>
+                <span id="numeroNfe"></span>
+                <li>Digito Verificador.:</li>
+                <span id="digito"></span>
+                <button id="cnpjButton">Mais Informações</button>
+                <p id="errorapi" style="display: none; color: gold"></p>
+              </ul>
+            </div>
+          </div>
+
+          <p id="errorMessage" style="display: none; color: gold"></p>
+
+          <div id="modal-info">
             <ul id="info-list">
-              <li>Data da nota (AA/MM):</li>
-              <span id="dataNota"></span>
-              <li>CNPJ da empresa emissora:</li>
-              <span id="cnpj"></span>
-              <li>Modelo da nota (55/65):</li>
-              <span id="modelo"></span>
-              <li>Serie.:</li>
-              <span id="serie"></span>
-              <li>Numero da Nota.:</li>
-              <span id="numeroNfe"></span>
-              <li>Digito Verificador.:</li>
-              <span id="digito"></span>
-              <button id="cnpjButton">Mais Informações</button>
-              <p id="errorapi" style="display: none; color: gold"></p>
+              <li>Cidade:</li>
+              <span id="cidade"></span>
+              <li>Estado:</li>
+              <span id="ufCode"></span>
+              <li>Razão Social:</li>
+              <span id="razao-social"></span>
+              <li>Email:</li>
+              <span id="email"></span>
+              <li>Atividade comercial:</li>
+              <span id="atividade-comercial"></span>
+
+              <li>Atualizado em:</li>
+              <span id="data-info"></span>
             </ul>
           </div>
-        </div>
-
-        <p id="errorMessage" style="display: none; color: gold"></p>
-
-        <div id="modal-info">
-          <ul id="info-list">
-            <li>Cidade:</li>
-            <span id="cidade"></span>
-            <li>Estado:</li>
-            <span id="ufCode"></span>
-            <li>Razão Social:</li>
-            <span id="razao-social"></span>
-            <li>Email:</li>
-            <span id="email"></span>
-            <li>Atividade comercial:</li>
-            <span id="atividade-comercial"></span>
-
-            <li>Atualizado em:</li>
-            <span id="data-info"></span>
-          </ul>
         </div>
       </div>
     </div>
