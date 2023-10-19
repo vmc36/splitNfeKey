@@ -14,76 +14,79 @@
     <link rel="stylesheet" href="/dist/output.css" />
     <title>Extração de Informações da Chave da NFe</title>
   </head>
-  <body>
-    <div class="w-full h-full flex bg-bgColor">
-      <div class="w-1/2 flex items-center">
-        <div>
-          <img src="/img/logo.svg" alt="imagem logo nfe" />
-        </div>
+  <body class="bg-bgColor">
+    <div class="w-full h-full flex lg:flex-col lg:items-center lg:justify-center">
+      <div class="w-1/2">
+        <img class="m-auto" src="/img/logo.svg" alt="imagem logo nfe" />
       </div>
       <div class="w-1/2">
-        <h1 id="main-title" class="text-mainTitle font-inter text-center text-5xl font-bold mt-24 mr-4">Informação Nota Fiscal Eletrônica</h1>
+        <h1 id="main-title" class="text-mainTitle font-inter text-center text-5xl font-bold mt-12 mr-4 lg:mt-0 sm:w-[107%] sm:text-2xl">
+          Informação Nota Fiscal Eletrônica
+        </h1>
 
-        <div id="wrapper-content">
-          <div class="flex items-center justify-center w-full space-x-4 my-4">
-            <div class="w-36 h-[1px] bg-strokeColor"></div>
-            <p class="font-normal leading-none text-center font-poppins text-mainTitle">Insira sua chave</p>
-            <div class="w-36 h-[1px] bg-strokeColor"></div>
+        <div class="flex items-center justify-center w-full space-x-2 my-4">
+          <div class="w-48 h-[1px] bg-strokeColor"></div>
+          <p class="font-normal leading-none text-center font-poppins text-mainTitle">Insira sua chave</p>
+          <div class="w-48 h-[1px] bg-strokeColor"></div>
+        </div>
+        <div class="w-full text-center">
+          <input
+            id="entrada"
+            type="text"
+            placeholder="Insira sua chave"
+            class="w-[506px] h-[60px] bg-white rounded-[10px] border border-neutral-600 border-opacity-40 tracking-widest text-center sm:h-8 sm:w-48 sm:m-auto"
+          />
+          <div class="flex items-center justify-center w-full space-x-2 my-4">
+            <div class="w-48 h-[1px] bg-strokeColor"></div>
+            <p class="font-normal leading-none text-center font-poppins text-mainTitle">Informações:</p>
+            <div class="w-48 h-[1px] bg-strokeColor"></div>
           </div>
+        </div>
 
-          <div class="w-full text-center">
-            <input
-              id="entrada"
-              type="text"
-              placeholder="Insira sua chave"
-              class="w-[506px] h-[60px] bg-white rounded-[10px] border border-neutral-600 border-opacity-40 tracking-widest text-center"
-            />
-            <!-- continuar aqui centralizando placeholder -->
-          </div>
-          <div id="info-container">
-            <div id="inner-container">
-              <ul id="uf-list">
-                <li>UF:</li>
-                <li id="ufHTML"></li>
-              </ul>
-              <ul id="info-list">
-                <li>Data da nota (AA/MM):</li>
-                <span id="dataNota"></span>
-                <li>CNPJ da empresa emissora:</li>
-                <span id="cnpj"></span>
-                <li>Modelo da nota (55/65):</li>
-                <span id="modelo"></span>
-                <li>Serie.:</li>
-                <span id="serie"></span>
-                <li>Numero da Nota.:</li>
-                <span id="numeroNfe"></span>
-                <li>Digito Verificador.:</li>
-                <span id="digito"></span>
-                <button id="cnpjButton">Mais Informações</button>
-                <p id="errorapi" style="display: none; color: gold"></p>
-              </ul>
-            </div>
-          </div>
+        <div class="w-full h-full mt-2 font-poppins text-lg sm:text-base">
+          <ul id="info-list" class="flex flex-col items-center font-semibold space-y-1 sm:items-baseline">
+            <li class="text-neutral-600 text-opacity-70">UF:</li>
+            <li id="ufHTML"></li>
+            <li class="text-neutral-600 text-opacity-70">Data da nota (AA/MM):</li>
+            <span id="dataNota" class="text-neutral-600 font-bold"></span>
+            <li class="text-neutral-600 text-opacity-70">CNPJ da empresa emissora:</li>
+            <span id="cnpj" class="text-neutral-600 font-bold"></span>
+            <li class="text-neutral-600 text-opacity-70">Modelo da nota (55/65):</li>
+            <span id="modelo" class="text-neutral-600 font-bold"></span>
+            <li class="text-neutral-600 text-opacity-70">Serie.:</li>
+            <span id="serie" class="text-neutral-600 font-bold"></span>
+            <li class="text-neutral-600 text-opacity-70">Numero da Nota.:</li>
+            <span id="numeroNfe" class="text-neutral-600 font-bold"></span>
+            <li class="text-neutral-600 text-opacity-70">Digito Verificador.:</li>
+            <span id="digito" class="text-neutral-600 font-bold"></span>
+          </ul>
+        </div>
+        <div
+          id="show-button"
+          class="w-64 h-9 px-[41px] py-2.5 bg-neutral-600 bg-opacity-70 rounded-[30px] cursor-pointer border border-neutral-600 border-opacity-40 justify-center flex items-center sm:w-4/5 sm:p-2"
+          style="display: none"
+        >
+          <button id="cnpjButton" class="text-white text-base font-poppins sm:leading-none">Mais Informações</button>
+        </div>
+        <p id="errorapi" style="display: none; color: gold"></p>
+        <p id="errorMessage" style="display: none; color: gold"></p>
 
-          <p id="errorMessage" style="display: none; color: gold"></p>
+        <div id="modal-info" style="display: none">
+          <ul id="info-list">
+            <li>Cidade:</li>
+            <span id="cidade"></span>
+            <li>Estado:</li>
+            <span id="ufCode"></span>
+            <li>Razão Social:</li>
+            <span id="razao-social"></span>
+            <li>Email:</li>
+            <span id="email"></span>
+            <li>Atividade comercial:</li>
+            <span id="atividade-comercial"></span>
 
-          <div id="modal-info">
-            <ul id="info-list">
-              <li>Cidade:</li>
-              <span id="cidade"></span>
-              <li>Estado:</li>
-              <span id="ufCode"></span>
-              <li>Razão Social:</li>
-              <span id="razao-social"></span>
-              <li>Email:</li>
-              <span id="email"></span>
-              <li>Atividade comercial:</li>
-              <span id="atividade-comercial"></span>
-
-              <li>Atualizado em:</li>
-              <span id="data-info"></span>
-            </ul>
-          </div>
+            <li>Atualizado em:</li>
+            <span id="data-info"></span>
+          </ul>
         </div>
       </div>
     </div>

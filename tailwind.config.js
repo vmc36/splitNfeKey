@@ -13,6 +13,11 @@ module.exports = {
         inter: ['Inter', 'sans-serif'],
         poppins: ['Poppins', ' sans-serif'],
       },
+      screens: {
+        sm: { max: '430px' },
+        md: { max: '768px' },
+        lg: { max: '1024px' },
+      },
     },
   },
   plugins: [],

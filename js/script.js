@@ -13,6 +13,9 @@ addEventListener('input', async function () {
       digito: slicedKey.slice(43, 44),
     };
 
+    const showButtonMoreInformation = document.getElementById('show-button');
+    showButtonMoreInformation.style.display = 'flex';
+
     function formatDateInvoice(dateString) {
       const ano = dateString.slice(2, 4);
       const mes = dateString.slice(0, 2);
@@ -96,17 +99,10 @@ addEventListener('input', async function () {
 
     function showModal() {
       const modal = document.getElementById('modal-info');
-      const wrapperHeight = document.getElementById('wrapper-content');
 
       if (modal) {
         modalVisible = !modalVisible;
-
-        if (modalVisible) {
-          modal.style.display = 'flex';
-          wrapperHeight.style.height = '900px';
-        } else {
-          modal.style.display = 'none';
-        }
+        modalVisible ? (modal.style.display = 'flex') : (modal.style.display = 'none');
       }
     }
 
