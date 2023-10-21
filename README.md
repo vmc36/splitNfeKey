@@ -41,16 +41,42 @@ Para usar essa funcionalidade em uma aplicação web:
 
 Essa funcionalidade é essencial em aplicações relacionadas à área fiscal e contábil, permitindo aos usuários analisar e compreender rapidamente as informações contidas na chave de acesso da NF-e ao inseri-la no sistema.
 
-**Nota:**
+# Tecnologias utilizadas
 
-O principal objetivo deste código é permitir que estudantes, desenvolvedores ou entusiastas possam explorar e experimentar os conceitos e funcionalidades do JavaScript de forma educacional e prática. Isso inclui a aplicação de algoritmos, técnicas de programação, frameworks, bibliotecas e outros recursos relacionados à linguagem.
-Este documento tem o propósito de esclarecer que o código contido neste repositório ou projeto tem finalidade exclusiva para estudo e teste de recursos relacionados à linguagem JavaScript. Ele não deve ser utilizado em ambientes de produção, em aplicações comerciais ou em qualquer contexto que implique em responsabilidades de garantia de funcionamento ou segurança.
+- Vanilla JS
+- Html
+- TailwindCss
 
-## Restrições de Uso
+## Instalação e Utilização:
 
-Por favor, observe as seguintes restrições de uso para este código:
+```bash
+# Clone o Projeto
+git clone https://github.com/vmc36/splitNfeKey.git
+```
 
-- Não utilize este código em produção ou em aplicações que exigem garantia de desempenho, segurança ou funcionalidade.
-- Não utilize este código em ambientes ou contextos que possam impactar negativamente usuários, sistemas ou organizações.
-- Não utilize este código em projetos comerciais ou de negócios sem uma revisão e adaptação adequadas para atender a requisitos de produção.
-- Não reivindique ou utilize este código como seu próprio trabalho sem atribuir a devida autoria e referência a este projeto.
+```bash
+# Abra a pasta do repositório
+cd local-da-pasta
+```
+
+```bash
+# Instale as dependências
+ npm install
+```
+
+---
+
+## Para rodar o Projeto
+
+```bash
+npm start
+```
+
+---
+
+![alt text](https://imageupload.io/ib/lBGmlad2SAZPm33_1697893775.jpg)
+
+# Contato
+
+Sinta-se a vontade em clonar e utilizar o repositório.
+Se você tiver alguma dúvida ou encontrar algum problema ao utilizar a aplicação, entre em contato através do endereço de e-mail viniciusmodesto.dev@gmail.com.

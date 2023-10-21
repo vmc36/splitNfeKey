@@ -118,6 +118,7 @@ addEventListener('input', async function () {
         if (timeDiff < 60000) {
           const showInfoApiLimit = getElementById('errorapi');
           showInfoApiLimit.textContent = 'Limite de requisições atingido. Aguarde um momento antes de fazer mais requisições.';
+          showInfoApiLimit.style.display = 'block';
           return;
         } else {
           requestCount = 0;
