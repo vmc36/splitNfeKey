@@ -69,7 +69,10 @@ cd local-da-pasta
 ## Para rodar o Projeto
 
 ```bash
-npm start
+Utilize o live server.
+
+utilize para buildar as quando alterar o css:
+npm run start-tailwind
 ```
 
 ---
