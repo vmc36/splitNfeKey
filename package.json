@@ -1,10 +1,12 @@
 {
   "version": "1.0.0",
   "description": "Informação Nota Fiscal Eletrônica",
-  "author": "Vinicius Modesto <viniciusmodesto.dev@gmail.com>",
+  "author": "Vinicius Modesto",
+  "email": "viniciusmodesto.dev@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start": "live-server && npx tailwindcss -i ./css/style.css -o ./dist/output.css --watch"
+    "start-tailwind": "npx tailwindcss -i ./css/style.css -o ./dist/output.css --watch",
+    "watch-tailwind": "onchange './css/style.css' -- npm run start-tailwind"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"

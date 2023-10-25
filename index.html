@@ -30,6 +30,8 @@
           <input
             id="entrada"
             type="text"
+            required="required"
+            pattern="\d*"
             placeholder="Insira sua chave"
             class="w-[506px] h-[60px] bg-white rounded-[10px] border border-neutral-600 border-opacity-40 tracking-widest text-center sm:h-8 sm:w-48 sm:m-auto"
           />
@@ -60,13 +62,14 @@
         </div>
         <div
           id="show-button"
-          class="w-64 h-9 px-[41px] py-2.5 bg-neutral-600 bg-opacity-70 rounded-[30px] cursor-pointer border border-neutral-600 border-opacity-40 justify-center flex items-center sm:w-4/5 sm:p-2"
+          class="w-64 h-9 px-[41px] py-2.5 mt-4 bg-neutral-600 bg-opacity-70 rounded-[30px] cursor-pointer border border-neutral-600 border-opacity-40 justify-center flex items-center sm:w-4/5 sm:p-2"
           style="display: none"
         >
           <button id="cnpjButton" class="text-white text-base font-poppins sm:leading-none">Mais Informações</button>
         </div>
-        <p id="errorapi" style="display: none; color: gold"></p>
-        <p id="errorMessage" style="display: none; color: gold"></p>
+        <p id="errorapi" style="display: none; color: #e1bc29"></p>
+        <p id="errorMessage" style="display: none; color: #e1bc29"></p>
+        <p id="cnpj-invalid" style="display: none; color: #e1bc29"></p>
 
         <div id="modal-info" style="display: none">
           <ul id="info-list" class="font-poppins font-semibold text-lg sm:text-base flex flex-col items-center">

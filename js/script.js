@@ -1,6 +1,7 @@
 addEventListener('input', async function () {
   const chaveNfe = document.getElementById('entrada').value;
-  const slicedKey = chaveNfe.slice('');
+  const newValueChaveNfe = chaveNfe.replace(/\s/g, '');
+  const slicedKey = newValueChaveNfe.slice('');
   if (slicedKey.length === 44) {
     const infoKeyNfe = {
       uf: slicedKey.slice(0, 2),
@@ -92,6 +93,9 @@ addEventListener('input', async function () {
         const data = await response.json();
         return data;
       } catch (error) {
+        const showCNPJInvalid = document.getElementById('cnpj-invalid');
+        showCNPJInvalid.textContent = 'Erro ao consultar CNPJ: ' + error.message;
+        showCNPJInvalid.style.display = 'block';
         throw new Error('Erro ao consultar CNPJ: ' + error.message);
       }
     }
@@ -116,7 +120,7 @@ addEventListener('input', async function () {
         const timeDiff = currentTime - lastRequestTimestamp;
 
         if (timeDiff < 60000) {
-          const showInfoApiLimit = getElementById('errorapi');
+          const showInfoApiLimit = document.getElementById('errorapi');
           showInfoApiLimit.textContent = 'Limite de requisições atingido. Aguarde um momento antes de fazer mais requisições.';
           showInfoApiLimit.style.display = 'block';
           return;
