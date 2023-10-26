@@ -34,15 +34,13 @@ addEventListener('input', async function () {
 
     const cnpjFormated = formatCnpj(infoKeyNfe.cnpj);
 
-    const infoKeyNfeArray = infoKeyNfe;
-
-    document.getElementById('ufHTML').innerText = infoKeyNfeArray.uf;
+    document.getElementById('ufHTML').innerText = infoKeyNfe.uf;
     document.getElementById('dataNota').textContent = dateFormated;
     document.getElementById('cnpj').textContent = cnpjFormated;
-    document.getElementById('modelo').textContent = infoKeyNfeArray.mod;
-    document.getElementById('serie').textContent = infoKeyNfeArray.serie;
-    document.getElementById('numeroNfe').textContent = infoKeyNfeArray.numberNfe;
-    document.getElementById('digito').textContent = infoKeyNfeArray.digito;
+    document.getElementById('modelo').textContent = infoKeyNfe.mod;
+    document.getElementById('serie').textContent = infoKeyNfe.serie;
+    document.getElementById('numeroNfe').textContent = infoKeyNfe.numberNfe;
+    document.getElementById('digito').textContent = infoKeyNfe.digito;
 
     const estados = {
       11: 'Rondônia',
@@ -74,8 +72,7 @@ addEventListener('input', async function () {
       53: 'Distrito Federal',
     };
 
-    const filterUfInfo = infoKeyNfeArray.uf;
-
+    const filterUfInfo = infoKeyNfe.uf;
     const nomeEstado = estados[filterUfInfo];
 
     document.getElementById('ufCode').textContent = nomeEstado;
@@ -111,7 +108,7 @@ addEventListener('input', async function () {
     }
 
     let requestCount = 0;
-    const maxRequestsPerMinute = 2; // Limite de requisições por minuto
+    const maxRequestsPerMinute = 3; // Limite de requisições por minuto
     let lastRequestTimestamp = 0;
 
     async function getCNPJInformation() {
@@ -130,7 +127,6 @@ addEventListener('input', async function () {
       }
 
       const cnpj = infoKeyNfe.cnpj;
-
       try {
         requestCount++;
         lastRequestTimestamp = new Date().getTime();
@@ -149,6 +145,7 @@ addEventListener('input', async function () {
         }
         const resultApi = await consultarCNPJApi(cnpj);
         const empresa = resultApi;
+
         const razaoSocial = empresa.razao_social;
         const email = empresa.estabelecimento.email;
         const cidade = empresa.estabelecimento.cidade.nome;
@@ -156,6 +153,16 @@ addEventListener('input', async function () {
         const commercialActivity = empresa.estabelecimento.atividade_principal.descricao;
         const dateFormatedtoBr = formatDateBrazil(dataInfo);
 
+        const arrayInscricoes = empresa.estabelecimento.inscricoes_estaduais;
+        const estadoInscricao = empresa.estabelecimento.estado.sigla;
+
+        arrayInscricoes.forEach((objeto) => {
+          const estado = objeto.estado;
+          if (estado && estado.sigla === estadoInscricao) {
+            const inscricaoEstadual = objeto.inscricao_estadual;
+            document.getElementById('inscricao-estadual').textContent = inscricaoEstadual;
+          }
+        });
         document.getElementById('razao-social').textContent = razaoSocial;
         document.getElementById('email').textContent = email;
         document.getElementById('cidade').textContent = cidade;
@@ -166,12 +173,19 @@ addEventListener('input', async function () {
         console.error('Erro:', error);
       }
     }
-
     const cnpjButton = document.getElementById('cnpjButton');
     cnpjButton.addEventListener('click', getCNPJInformation);
-  } else {
-    var errorMessage = document.getElementById('errorMessage');
+  }
+  var errorMessage = document.getElementById('errorMessage');
+  if (slicedKey.trim() === '') {
+    // Verifica se o campo está vazio após remover espaços em branco
+    errorMessage.textContent = ''; // Limpa o texto da mensagem de erro
+    errorMessage.style.display = 'none'; // Oculta a mensagem de erro
+  } else if (slicedKey.length !== 44) {
     errorMessage.textContent = 'Número da chave inválida';
     errorMessage.style.display = 'block';
+  } else {
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
   }
 });

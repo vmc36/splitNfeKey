@@ -71,7 +71,7 @@ cd local-da-pasta
 ```bash
 Utilize o live server.
 
-utilize para buildar as quando alterar o css:
+# utilize para buildar as quando alterar o css:
 npm run start-tailwind
 ```
 
