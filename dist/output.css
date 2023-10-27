@@ -541,6 +541,11 @@ video {
   margin-bottom: 1rem;
 }
 
+.my-3{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .mr-4{
   margin-right: 1rem;
 }
@@ -619,15 +624,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-
-.break-normal{
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.break-words{
-  overflow-wrap: break-word;
 }
 
 .break-all{
@@ -762,6 +758,10 @@ video {
 @media (max-width: 425px){
   .sm\:m-auto{
     margin: auto;
+  }
+
+  .sm\:m-0{
+    margin: 0px;
   }
 
   .sm\:h-8{
